@@ -41,7 +41,7 @@ VALIDATE $? "Starting MySql Server"
 #mysql_secure_installation --set-root-pass ExpenseApp@1 &>>$LOG_FILE
 #VALIDATE $? "Settingup root Password"
 
-mysql -h db.nelipudidevops.online -uroot -pExpenseApp@1 -e 'SHOW DATABASES;'
+mysql -h db.nelipudidevops.online -uroot -pExpenseApp@1 -e 'SHOW DATABASES;' &>>$LOG_FILE
 
 if [ $? -ne 0]
 then
