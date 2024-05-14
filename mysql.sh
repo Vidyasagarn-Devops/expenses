@@ -43,7 +43,7 @@ VALIDATE $? "Starting MySql Server"
 
 mysql -h db.nelipudidevops.online -uroot -pExpenseApp@1 -e 'SHOW DATABASES;' &>>$LOG_FILE
 
-if [ $? -ne 0]
+if [ $? -ne 0 ]
 then
     mysql_secure_installation --set-root-pass ExpenseApp@1
 else
