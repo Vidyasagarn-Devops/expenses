@@ -38,8 +38,17 @@ VALIDATE $? "Enabling MySql Server"
 systemctl start mysqld &>>$LOG_FILE
 VALIDATE $? "Starting MySql Server"
 
-mysql_secure_installation --set-root-pass ExpenseApp@1 &>>$LOG_FILE
-VALIDATE $? "Settingup root Password"
+#mysql_secure_installation --set-root-pass ExpenseApp@1 &>>$LOG_FILE
+#VALIDATE $? "Settingup root Password"
+
+mysql -h db.nelipudidevops.online -uroot -pExpenseApp@1 -e 'SHOW DATABASES;'
+
+if [ $? -ne 0]
+then
+    mysql_secure_installation --set-root-pass ExpenseApp@1
+else
+    echo "MySql root password is already setup.... $Y SKIPPING $N'
+fi
 
 
 
