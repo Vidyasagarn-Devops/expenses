@@ -44,7 +44,8 @@ id expense &>>$LOG_FILE
 if [ $? -ne 0 ]
 then
     useradd expense
+    VALIDATE $? "Creating expense user"
 else
-    echo "user already added"
+    echo "Expense user already Created... $Y SKIPPING $N"
 fi
 
